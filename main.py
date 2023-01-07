@@ -40,6 +40,15 @@ pixel_data = {
     "quantity": "10",
 }
 
-response = requests.post(url=pixel_create_endpoint, json=pixel_data, headers=headers)
+# set pixel
+# response = requests.post(url=pixel_create_endpoint, json=pixel_data, headers=headers)
+
+# update pixel
+update_endpoint = f"{graph_endpoint}/{graph_id}/{actual_date}"
+update_pixel = {
+    "quantity": "30",
+}
+response = requests.put(url=update_endpoint, json=update_pixel, headers=headers)
 
 print(response.text)
+
