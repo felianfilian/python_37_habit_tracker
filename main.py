@@ -1,3 +1,5 @@
+from datetime import datetime
+
 import requests
 
 pixela_endpoint = "https://pixe.la/v1/users"
@@ -26,5 +28,12 @@ graph_config = {
 }
 # response = requests.post(url=graph_endpoint, json=graph_config)
 
-pixel_data = {}
+today = datetime(year=2023, month=7, day=23)
+actual_date = today.strftime("%Y%m%d")
+
+pixel_data = {
+    "date": actual_date,
+    "quantity": "10",
+}
+
 
