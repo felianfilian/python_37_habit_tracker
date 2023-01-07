@@ -48,7 +48,13 @@ update_endpoint = f"{graph_endpoint}/{graph_id}/{actual_date}"
 update_pixel = {
     "quantity": "30",
 }
-response = requests.put(url=update_endpoint, json=update_pixel, headers=headers)
+# response = requests.put(url=update_endpoint, json=update_pixel, headers=headers)
+
+# delete pixel
+delete_endpoint = f"{graph_endpoint}/{graph_id}/{actual_date}"
+response = requests.delete(url=delete_endpoint, headers=headers)
 
 print(response.text)
+
+
 
