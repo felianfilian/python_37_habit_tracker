@@ -3,8 +3,8 @@ from datetime import datetime
 import requests
 
 pixela_endpoint = "https://pixe.la/v1/users"
-token = "ajnj24j453n3jkgöhöl64"
-username = "mario"
+token = "felianfilian"
+username = "darian63"
 graph_id = "graph1"
 pixel_create_endpoint = f"{pixela_endpoint}/{username}/graphs/{graph_id}"
 
@@ -15,8 +15,11 @@ user_params = {
     "notMinor": "yes",
 }
 
-# response = requests.post(url=pixela_endpoint, json=user_params)
-# print(response.text)
+headers = {
+    "X-USER-TOKEN": token
+}
+
+response = requests.post(url=pixela_endpoint, json=user_params, headers=headers)
 
 graph_endpoint = f"{pixela_endpoint}/{username}/graphs"
 graph_config = {
@@ -26,7 +29,8 @@ graph_config = {
     "type": "float",
     "color": "sora"
 }
-# response = requests.post(url=graph_endpoint, json=graph_config)
+response = requests.post(url=graph_endpoint, json=graph_config, headers=headers)
+
 
 today = datetime(year=2023, month=7, day=23)
 actual_date = today.strftime("%Y%m%d")
@@ -36,4 +40,6 @@ pixel_data = {
     "quantity": "10",
 }
 
+# response = requests.post(url=pixel_create_endpoint, json=pixel_data, headers=headers)
 
+print(response.text)
