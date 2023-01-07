@@ -29,10 +29,10 @@ graph_config = {
     "type": "float",
     "color": "sora"
 }
-response = requests.post(url=graph_endpoint, json=graph_config, headers=headers)
+# response = requests.post(url=graph_endpoint, json=graph_config, headers=headers)
 
 
-today = datetime(year=2023, month=7, day=23)
+today = datetime(year=2022, month=7, day=23)
 actual_date = today.strftime("%Y%m%d")
 
 pixel_data = {
@@ -40,6 +40,6 @@ pixel_data = {
     "quantity": "10",
 }
 
-# response = requests.post(url=pixel_create_endpoint, json=pixel_data, headers=headers)
+response = requests.post(url=pixel_create_endpoint, json=pixel_data, headers=headers)
 
 print(response.text)
